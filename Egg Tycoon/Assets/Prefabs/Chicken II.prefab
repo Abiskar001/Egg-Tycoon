@@ -331,7 +331,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c53ee6c85aba97d4a9665200e608e2e4, type: 3}
     m_FontSize: 300
     m_FontStyle: 1
     m_BestFit: 0
@@ -891,9 +891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147a0d3635d0b1c4ea1fde4a735d8fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chickenPrice: 20
   chickenBehaviour: 0
   movementSpeed: 1
-  lifeExpentancy: 10
+  lifeExpentancy: 5
   lifespanInDays: 0
   ageInDays: 333.1
   hunger: 75
@@ -917,8 +918,10 @@ MonoBehaviour:
   health: 100
   gender: 1
   canLayEggs: 1
-  eggLaidPerDay: 4
+  eggLaidPerDay: 6
   eggs: {fileID: 4996157721792497815, guid: a74e7e8e2586e4c498cd49083a2f94cb, type: 3}
+  eggLayingCountdown: 60
+  currentEggLayingCountdown: 0
   minX: -8
   maxX: 8
   minY: -4

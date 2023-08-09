@@ -7,12 +7,13 @@ public class Chicken : MonoBehaviour
     TimeManager timeManager;
     Animator anim;
 
+    public int chickenPrice;
+
     public ChickenBehaviour chickenBehaviour;
     
     public float movementSpeed;
 
     [Header("Age")]
-    [Range(6,10)]
     public int lifeExpentancy;
     [SerializeField] private float lifespanInDays;
     [SerializeField] private float ageInDays;
@@ -56,9 +57,9 @@ public class Chicken : MonoBehaviour
     [SerializeField] private Gender gender;
     [SerializeField] private bool canLayEggs;
     [Range(0, 10)]
-    [SerializeField] private int eggLaidPerDay;
+    public int eggLaidPerDay;
     public GameObject eggs;
-    float eggLayingCountdown , currentEggLayingCountdown;
+    public float eggLayingCountdown , currentEggLayingCountdown = 0;
 
     [Header("Boundaries")]
     public float minX;

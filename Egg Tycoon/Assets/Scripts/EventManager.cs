@@ -8,6 +8,8 @@ public class EventManager : MonoBehaviour
     public static event Action dayPassed;
 
     public static event Action eggCollected;
+
+    public static event Action moneyUpdate;
     
     public static void oneDayPassed()
     {
@@ -17,5 +19,10 @@ public class EventManager : MonoBehaviour
     public static void eggPressed()
     {
         eggCollected?.Invoke();
+    }
+
+    public static void moneyyUpdate()
+    {
+        moneyUpdate?.Invoke();
     }
 }
