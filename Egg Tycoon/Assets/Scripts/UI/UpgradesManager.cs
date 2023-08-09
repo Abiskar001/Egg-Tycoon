@@ -20,10 +20,11 @@ public class UpgradesManager : MonoBehaviour
     {
         EventManager.moneyUpdate -= colorUpdater;
     }
-    private void Awake()
+    private void Start()
     {
         money = GameObject.FindObjectOfType<Money>();
         EventManager.moneyUpdate += colorUpdater;
+        textUpdater();
     }
 
     //updates upgrade info and price text in shop
@@ -35,7 +36,7 @@ public class UpgradesManager : MonoBehaviour
 
     private void Update()
     {
-        textUpdater();
+        colorUpdater();
     }
 
     public void upgradeItem()
@@ -45,9 +46,10 @@ public class UpgradesManager : MonoBehaviour
             money.money -= item.GetComponent<IUpgradeables>().upgradePrice();
             money.moneyUpdate();
             item.GetComponent<IUpgradeables>().upgradeLevel();
+            textUpdater();
         }
     }
-
+    
     public void colorUpdater()
     {
         if (money.subtractMoney(item.GetComponent<IUpgradeables>().upgradePrice()))

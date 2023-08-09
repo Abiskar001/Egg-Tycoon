@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChickenCoopManager : MonoBehaviour
 {
 
-    private Money money;
+    public Money money;
     [SerializeField] GameObject[] allChickensInGame;
     [SerializeField] GameObject chicken;
     [SerializeField] Text chickenPrice;
@@ -16,7 +16,7 @@ public class ChickenCoopManager : MonoBehaviour
 
     public Transform chickenSpawnLocation;
 
-    private void Awake()
+    private void Start()
     {
         EventManager.moneyUpdate += colorUpdater;
         money = GameObject.FindObjectOfType<Money>();
@@ -57,7 +57,10 @@ public class ChickenCoopManager : MonoBehaviour
             money.moneyUpdate();
         }
     }
-
+    private void Update()
+    {
+        colorUpdater();
+    }
     public void colorUpdater()
     {
         if (money.subtractMoney(chicken.GetComponent<Chicken>().chickenPrice))

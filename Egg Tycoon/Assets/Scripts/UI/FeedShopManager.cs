@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FeedShopManager : MonoBehaviour
 {
-    Money money;
+    public Money money;
     [SerializeField] feed feed;
     [SerializeField] int price;
     [SerializeField] Text feedValueText;
@@ -14,11 +14,6 @@ public class FeedShopManager : MonoBehaviour
     Food food;
     Water water;
 
-    private void Awake()
-    {
-        EventManager.moneyUpdate += colorUpdater;
-        money = FindObjectOfType<Money>();
-    }
 
     private void OnDisable()
     {
@@ -30,6 +25,8 @@ public class FeedShopManager : MonoBehaviour
         priceText.text = price.ToString();
         food = FindObjectOfType<Food>();
         water = FindObjectOfType<Water>();
+        EventManager.moneyUpdate += colorUpdater;
+        money = FindObjectOfType<Money>();
     }
 
     public void buyFeed()
@@ -59,6 +56,10 @@ public class FeedShopManager : MonoBehaviour
                     break;
             }
         }
+    }
+    private void Update()
+    {
+        colorUpdater();
     }
     public void colorUpdater()
     {
